@@ -4,6 +4,7 @@ import de.simagdo.engine.camera.Camera;
 import de.simagdo.engine.scene.GameObject;
 import de.simagdo.engine.shaders.Shader;
 import utils.ResourceLoader;
+import utils.Utils;
 
 import static org.lwjgl.opengl.GL13.*;
 
@@ -24,11 +25,11 @@ public class TerrainWireframeShader extends Shader {
 
         super();
 
-        addVertexShader(ResourceLoader.loadShader("shaders/terrain/terrain_VS.glsl"));
-        addTessellationControlShader(ResourceLoader.loadShader("shaders/terrain/terrain_TC.glsl"));
-        addTessellationEvaluationShader(ResourceLoader.loadShader("shaders/terrain/terrain_TE.glsl"));
-        addGeometryShader(ResourceLoader.loadShader("shaders/terrain/wireframe_GS.glsl"));
-        addFragmentShader(ResourceLoader.loadShader("shaders/terrain/wireframe_FS.glsl"));
+        addVertexShader(Utils.getDataAsString("shaders/terrain/terrain_VS.glsl"));
+        addTessellationControlShader(Utils.getDataAsString("shaders/terrain/terrain_TC.glsl"));
+        addTessellationEvaluationShader(Utils.getDataAsString("shaders/terrain/terrain_TE.glsl"));
+        addGeometryShader(Utils.getDataAsString("shaders/terrain/wireframe_GS.glsl"));
+        addFragmentShader(Utils.getDataAsString("shaders/terrain/wireframe_FS.glsl"));
 
         compileShader();
 
