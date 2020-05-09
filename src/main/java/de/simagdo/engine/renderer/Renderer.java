@@ -11,7 +11,9 @@ public class Renderer extends Component {
     public void render() {
         this.renderInfo.getConfig().enable();
         this.renderInfo.getShader().bind();
-        this.renderInfo.getShader().updateUniforms(getParent());
+
+        this.renderInfo.getShader().updateUniforms(this.getParent());
+
         this.getVbo().draw();
         this.renderInfo.getConfig().disable();
     }
@@ -28,8 +30,15 @@ public class Renderer extends Component {
         return renderInfo;
     }
 
-    public void setRenderInfo(RenderInfo renderinfo) {
-        this.renderInfo = renderinfo;
+    public void setRenderInfo(RenderInfo renderInfo) {
+        this.renderInfo = renderInfo;
     }
 
+    @Override
+    public String toString() {
+        return "Renderer{" +
+                "vbo=" + vbo +
+                ", renderInfo=" + renderInfo +
+                '}';
+    }
 }

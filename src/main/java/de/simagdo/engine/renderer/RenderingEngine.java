@@ -3,8 +3,7 @@ package de.simagdo.engine.renderer;
 import de.simagdo.engine.camera.Camera;
 import de.simagdo.engine.configs.DefaultConfig;
 import de.simagdo.engine.window.Window;
-import de.simagdo.modules.skydome.Skydome;
-import de.simagdo.modules.terrain.Terrain;
+import de.simagdo.modules.Skydome;
 
 /**
  * @author Simagdo
@@ -15,17 +14,14 @@ public class RenderingEngine {
 
     private Window window;
     private Skydome skydome;
-    private Terrain terrain;
 
     public RenderingEngine() {
         window = Window.getInstance();
         skydome = new Skydome();
-        this.terrain = new Terrain();
     }
 
     public void init() {
         window.init();
-        this.terrain.init("settings/terrain_settings.txt");
     }
 
     public void render() {
@@ -34,9 +30,6 @@ public class RenderingEngine {
         DefaultConfig.clearScreen();
 
         skydome.render();
-
-        this.terrain.updateQuadtree();
-        this.terrain.render();
 
         // draw into OpenGL window
         window.render();

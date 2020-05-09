@@ -29,4 +29,11 @@ public class RenderInfo {
         this.shader = shader;
     }
 
+    @Override
+    public String toString() {
+        return "RenderInfo{" +
+                "config=" + config +
+                ", shader=" + shader +
+                '}';
+    }
 }

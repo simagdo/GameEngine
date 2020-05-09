@@ -3,53 +3,43 @@ package de.simagdo.engine.buffers;
 import de.simagdo.engine.model.Mesh;
 import utils.BufferUtil;
 
-import static org.lwjgl.opengl.GL11.GL_FLOAT;
-import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
-import static org.lwjgl.opengl.GL11.GL_UNSIGNED_INT;
-import static org.lwjgl.opengl.GL11.glDrawElements;
 import static org.lwjgl.opengl.GL15.*;
-import static org.lwjgl.opengl.GL15.glDeleteBuffers;
 import static org.lwjgl.opengl.GL20.*;
-import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
 import static org.lwjgl.opengl.GL30.*;
-import static org.lwjgl.opengl.GL30.glBindVertexArray;
 
 public class MeshVBO implements VBO {
 
-    private int vbo;
-    private int ibo;
+    private int vboId;
+    private int inticesId;
     private int vaoId;
     private int size;
 
     public MeshVBO() {
-        this.vbo = glGenBuffers();
-        this.ibo = glGenBuffers();
+        this.vboId = glGenBuffers();
+        this.inticesId = glGenBuffers();
         this.vaoId = glGenVertexArrays();
-        this.size = 0;
     }
 
+    @Override
     public void allocate(Mesh mesh) {
         this.size = mesh.getIndices().length;
-
         glBindVertexArray(this.vaoId);
-
-        glBindBuffer(GL_ARRAY_BUFFER, this.vbo);
+        glBindBuffer(GL_ARRAY_BUFFER, this.vboId);
         glBufferData(GL_ARRAY_BUFFER, BufferUtil.createFlippedBufferAOS(mesh.getVertices()), GL_STATIC_DRAW);
 
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this.ibo);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this.inticesId);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, BufferUtil.createFlippedBuffer(mesh.getIndices()), GL_STATIC_DRAW);
 
         glVertexAttribPointer(0, 3, GL_FLOAT, false, Float.BYTES * 8, 0);
         glVertexAttribPointer(1, 3, GL_FLOAT, false, Float.BYTES * 8, Float.BYTES * 3);
-        glVertexAttribPointer(2, 2, GL_FLOAT, false, Float.BYTES * 8, Float.BYTES * 6);
+        glVertexAttribPointer(2, 3, GL_FLOAT, false, Float.BYTES * 8, Float.BYTES * 6);
 
         glBindVertexArray(0);
     }
 
-
+    @Override
     public void draw() {
         glBindVertexArray(this.vaoId);
-
         glEnableVertexAttribArray(0);
         glEnableVertexAttribArray(1);
         glEnableVertexAttribArray(2);
@@ -63,9 +53,11 @@ public class MeshVBO implements VBO {
         glBindVertexArray(0);
     }
 
+    @Override
     public void delete() {
         glBindVertexArray(this.vaoId);
-        glDeleteBuffers(this.vbo);
+        glDeleteBuffers(this.vboId);
+        glDeleteBuffers(this.inticesId);
         glDeleteVertexArrays(this.vaoId);
         glBindVertexArray(0);
     }

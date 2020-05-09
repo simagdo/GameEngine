@@ -7,12 +7,15 @@ public abstract class Component {
     private GameObject parent;
 
     public void update() {
+
     }
 
     public void input() {
+
     }
 
     public void render() {
+
     }
 
     public GameObject getParent() {
@@ -23,12 +26,8 @@ public abstract class Component {
         this.parent = parent;
     }
 
-    public Transform getWorldTransform() {
-        return getParent().getWorldTransformation();
-    }
-
-    public Transform getLocalTransform() {
-        return getParent().getLocalTransformation();
+    public Transform getTransform() {
+        return this.getParent().getTransform();
     }
 
 }

@@ -1,50 +1,49 @@
 package de.simagdo.engine.scene;
 
+import de.simagdo.math.Transform;
+
 import java.util.HashMap;
 
-public class GameObject extends Node {
+public class GameObject {
 
     private HashMap<String, Component> components;
+    private Transform transform;
 
     public GameObject() {
-        components = new HashMap<String, Component>();
-    }
-
-    public void addComponent(String string, Component component) {
-        component.setParent(this);
-        components.put(string, component);
-    }
-
-    public void update() {
-        for (String key : components.keySet()) {
-            components.get(key).update();
-        }
-
-        super.update();
+        this.components = new HashMap<>();
+        this.transform = new Transform();
     }
 
     public void input() {
-        for (String key : components.keySet()) {
-            components.get(key).input();
-        }
+        this.components.keySet().forEach(key -> this.components.get(key).input());
+    }
 
-        super.input();
+    public void update() {
+        for (String key : this.components.keySet()) this.components.get(key).update();
     }
 
     public void render() {
-        for (String key : components.keySet()) {
-            components.get(key).render();
-        }
+        for (String key : this.components.keySet()) this.components.get(key).render();
+    }
 
-        super.render();
+    public void addComponent(String key, Component component) {
+        component.setParent(this);
+        this.components.put(key, component);
     }
 
     public HashMap<String, Component> getComponents() {
         return components;
     }
 
-    public Component getComponent(String component) {
-        return this.components.get(component);
+    public void setComponents(HashMap<String, Component> components) {
+        this.components = components;
     }
 
+    public Transform getTransform() {
+        return transform;
+    }
+
+    public void setTransform(Transform transform) {
+        this.transform = transform;
+    }
 }
