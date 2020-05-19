@@ -1,4 +1,4 @@
-package de.simagdo.modules;
+package de.simagdo.modules.sky;
 
 import de.simagdo.engine.scene.GameObject;
 import de.simagdo.engine.shaders.Shader;
@@ -10,6 +10,7 @@ public class AtmosphereShader extends Shader {
 
     protected AtmosphereShader() {
         super();
+
         this.addVertexShader(Utils.getDataAsString("shaders/sky/atmosphere_VS.glsl"));
         this.addFragmentShader(Utils.getDataAsString("shaders/sky/atmosphere_FS.glsl"));
         this.compileShader();
@@ -20,12 +21,13 @@ public class AtmosphereShader extends Shader {
     }
 
     public static AtmosphereShader getInstance() {
-        return instance == null ? new AtmosphereShader() : instance;
+        if (instance == null) instance = new AtmosphereShader();
+        return instance;
     }
 
-    public void updateUniforms(GameObject gameObject){
-        this.setUniform("modelViewProjectionMatrix", gameObject.getTransform().getModelViewProjectionMatrix());
-        this.setUniform("worldMatrix", gameObject.getTransform().getWorldMatrix());
+    public void updateUniforms(GameObject gameObject) {
+        this.setUniform("modelViewProjectionMatrix", gameObject.getWorldTransform().getModelViewProjectionMatrix());
+        this.setUniform("worldMatrix", gameObject.getWorldTransform().getWorldMatrix());
     }
 
 }

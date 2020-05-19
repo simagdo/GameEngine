@@ -3,7 +3,7 @@ package de.simagdo.engine.renderer;
 import de.simagdo.engine.camera.Camera;
 import de.simagdo.engine.configs.DefaultConfig;
 import de.simagdo.engine.window.Window;
-import de.simagdo.modules.Skydome;
+import de.simagdo.modules.sky.Skydome;
 
 /**
  * @author Simagdo
@@ -16,8 +16,8 @@ public class RenderingEngine {
     private Skydome skydome;
 
     public RenderingEngine() {
-        window = Window.getInstance();
-        skydome = new Skydome();
+        this.window = Window.getInstance();
+        this.skydome = new Skydome();
     }
 
     public void init() {
@@ -29,10 +29,10 @@ public class RenderingEngine {
 
         DefaultConfig.clearScreen();
 
-        skydome.render();
+        this.skydome.render();
 
         // draw into OpenGL window
-        window.render();
+        this.window.render();
     }
 
     public void update() {

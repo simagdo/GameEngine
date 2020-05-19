@@ -1,8 +1,7 @@
-package de.simagdo.modules;
+package de.simagdo.modules.sky;
 
 import de.simagdo.engine.buffers.MeshVBO;
 import de.simagdo.engine.configs.CCW;
-import de.simagdo.engine.configs.DefaultConfig;
 import de.simagdo.engine.model.Mesh;
 import de.simagdo.engine.renderer.RenderInfo;
 import de.simagdo.engine.renderer.Renderer;
@@ -23,7 +22,7 @@ public class Skydome extends GameObject {
         renderer.setRenderInfo(new RenderInfo(new CCW(), AtmosphereShader.getInstance()));
         this.addComponent(Constants.RENDERER_COMPONENT, renderer);
 
-        this.getTransform().setScaling(new Vec3f(Constants.ZFAR * 0.5f, Constants.ZFAR * 0.5f, Constants.ZFAR * 0.5f));
+        this.getLocalTransform().setScaling(new Vec3f(Constants.ZFAR * 0.5f, Constants.ZFAR * 0.5f, Constants.ZFAR * 0.5f));
     }
 
 }
