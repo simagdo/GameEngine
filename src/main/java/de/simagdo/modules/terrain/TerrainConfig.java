@@ -2,6 +2,9 @@ package de.simagdo.modules.terrain;
 
 import utils.Utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+
 public class TerrainConfig {
 
     private float scaleY;
@@ -10,36 +13,43 @@ public class TerrainConfig {
     private int[] lodMorphingArea = new int[8];
 
     public void loadFile(String file) {
+        try {
+            BufferedReader reader = Utils.getReader(file);
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split(" ");
+                tokens = Utils.removeEmptyStrings(tokens);
 
-        for (String line : Utils.getDataAsString(file).split("\n")) {
-            String[] tokens = line.split(" ");
-            tokens = Utils.removeEmptyStrings(tokens);
+                if (tokens.length == 0) continue;
 
-            if (tokens.length == 0) continue;
-
-            switch (tokens[0]) {
-                case "scaleY":
-                    this.setScaleY(Float.parseFloat(tokens[1]));
-                    break;
-                case "scaleXZ":
-                    this.setScaleXZ(Float.parseFloat(tokens[1]));
-                    break;
-                case "#lod_ranges":
-                    for (int i = 0; i < 8; i++) {
-                        tokens = line.split(" ");
-                        tokens = Utils.removeEmptyStrings(tokens);
-                        if (tokens[0].equals("lod" + (i + 1) + "_range")) {
-                            if (Integer.parseInt(tokens[1]) == 0) {
-                                this.lodRange[i] = 0;
-                                this.lodMorphingArea[i] = 0;
-                            } else {
-                                this.setLodRange(i, Integer.parseInt(tokens[1]));
+                switch (tokens[0]) {
+                    case "scaleY":
+                        this.setScaleY(Float.parseFloat(tokens[1]));
+                        break;
+                    case "scaleXZ":
+                        this.setScaleXZ(Float.parseFloat(tokens[1]));
+                        break;
+                    case "#lod_ranges":
+                        for (int i = 0; i < 8; i++) {
+                            line = reader.readLine();
+                            tokens = line.split(" ");
+                            tokens = Utils.removeEmptyStrings(tokens);
+                            if (tokens[0].equals("lod" + (i + 1) + "_range")) {
+                                if (Integer.parseInt(tokens[1]) == 0) {
+                                    this.lodRange[i] = 0;
+                                    this.lodMorphingArea[i] = 0;
+                                } else {
+                                    this.setLodRange(i, Integer.parseInt(tokens[1]));
+                                }
                             }
                         }
-                    }
-                    break;
+                        break;
+                }
+
             }
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

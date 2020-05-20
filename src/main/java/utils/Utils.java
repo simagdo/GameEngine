@@ -294,7 +294,7 @@ public class Utils {
         return null;
     }
 
-    private static BufferedReader getReader(String path) {
+    public static BufferedReader getReader(String path) {
         ClassLoader loader = new OBJLoader().getClass().getClassLoader();
         return new BufferedReader(new InputStreamReader(loader.getResourceAsStream(path)));
     }
