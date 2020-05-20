@@ -26,12 +26,12 @@ float morphLatitude(vec2 position) {
             return morph;
         }
     } else if (index == vec2(0, 1)) {
-        float morph = frac.x - frac.y - gap;
+        float morph = frac.x + frac.y - gap;
         if (morph > 0) {
             return -morph;
         }
     } else if (index == vec2(1, 1)) {
-        float morph = frac.x - frac.y;
+        float morph = frac.y - frac.x;
         if (morph > 0) {
             return -morph;
         }
@@ -59,7 +59,7 @@ float morphLongitude(vec2 position) {
             return -morph;
         }
     } else if (index == vec2(1, 1)) {
-        float morph = frac.y - frac.x;
+        float morph = frac.x - frac.y;
         if (morph > 0) {
             return morph;
         }
