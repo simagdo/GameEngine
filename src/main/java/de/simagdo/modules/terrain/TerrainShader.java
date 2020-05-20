@@ -29,12 +29,38 @@ public class TerrainShader extends Shader {
         this.addUniform("worldMatrix");
         this.addUniform("m_ViewProjection");
 
+        this.addUniform("index");
+        this.addUniform("gap");
+        this.addUniform("lod");
+        this.addUniform("scaleY");
+        this.addUniform("location");
+        this.addUniform("cameraPosition");
+
+        for (int i = 0; i < 8; i++) {
+            this.addUniform("lodMorphArea[" + i + "]");
+        }
+
     }
 
     public void updateUniforms(GameObject gameObject) {
+
+        TerrainNode terrainNode = (TerrainNode) gameObject;
+
+        this.setUniformf("scaleY", terrainNode.getConfig().getScaleY());
+        this.setUniformf("lod", terrainNode.getLod());
+        this.setUniform("index", terrainNode.getIndex());
+        this.setUniform("location", terrainNode.getLocation());
+        this.setUniformf("gap", terrainNode.getGap());
+
+        for (int i = 0; i < 8; i++) {
+            this.setUniformi("lodMorphArea[" + i + "]", terrainNode.getConfig().getLodMorphingArea()[i]);
+        }
+
+        this.setUniform("cameraPosition", Camera.getInstance().getPosition());
         this.setUniform("m_ViewProjection", Camera.getInstance().getViewProjectionMatrix());
         this.setUniform("localMatrix", gameObject.getLocalTransform().getWorldMatrix());
         this.setUniform("worldMatrix", gameObject.getWorldTransform().getWorldMatrix());
+
     }
 
 }
