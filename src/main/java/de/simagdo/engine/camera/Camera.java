@@ -20,7 +20,7 @@ public class Camera {
     private Vec3f forward;
     private Vec3f previousForward;
     private Vec3f up;
-    private float movAmt = 0.1f;
+    private float movAmt = 0.5f;
     private float rotAmt = 0.8f;
     private Matrix4f viewMatrix;
     private Matrix4f projectionMatrix;

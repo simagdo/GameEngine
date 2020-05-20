@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="Trying Terrain Quadtree">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/buffers/PatchVBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/scene/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/Terrain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainQuadtree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/buffers/MeshVBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/buffers/MeshVBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/buffers/VBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/buffers/VBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/renderer/RenderingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/renderer/RenderingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/scene/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/scene/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/scene/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/scene/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/AtmosphereShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/sky/AtmosphereShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/Skydome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/sky/Skydome.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProjectId" id="1bXp1pb8m4iN3GjkRDvCqKiNh6d" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/GameEngine-ea94d729b9daed338cfd48004abc5eb7536c5594/GameEngine-ea94d729b9daed338cfd48004abc5eb7536c5594" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="de.simagdo.modules.terrain" />
+      <recent name="de.simagdo.modules.gpgpu" />
+      <recent name="de.simagdo.engine.model" />
+      <recent name="utils.objLoader" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GameEngine" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.simagdo.GameEngine" />
+      <module name="GameEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.simagdo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GameEngine" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="" />
+      <created>1588788079444</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588788079444</updated>
+      <workItem from="1588788083698" duration="9021000" />
+      <workItem from="1588863998271" duration="5520000" />
+      <workItem from="1588952495718" duration="1454000" />
+      <workItem from="1589024232887" duration="6079000" />
+      <workItem from="1589098569615" duration="7465000" />
+      <workItem from="1589132951039" duration="5000" />
+      <workItem from="1589227791221" duration="1820000" />
+      <workItem from="1589466842720" duration="64000" />
+      <workItem from="1589911674098" duration="109000" />
+      <workItem from="1589911795112" duration="224000" />
+      <workItem from="1589912031410" duration="3588000" />
+    </task>
+    <task id="LOCAL-00001" summary="Creating the initial Game Engine.">
+      <created>1588952714907</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588952714907</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Terrain">
+      <created>1589024293895</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589024293895</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Skydome">
+      <created>1589033542175</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589033542175</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Trying Terrain Quadtree">
+      <created>1589911748108</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589911748108</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creating the initial Game Engine." />
+    <MESSAGE value="Terrain" />
+    <MESSAGE value="Skydome" />
+    <MESSAGE value="Trying Terrain Quadtree" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying Terrain Quadtree" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1589913762589">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589913762589" />
+    <state x="855" y="625" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588793315827">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="855" y="625" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588793315827" />
+    <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589025371870">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589025371870" />
+    <state width="438" height="646" key="DebuggerActiveHint" timestamp="1588968187002">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="438" height="646" key="DebuggerActiveHint/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588968187002" />
+    <state x="-1129" y="512" width="1187" height="854" maximized="true" key="DiffContextDialog" timestamp="1589913153576">
+      <screen x="-1280" y="523" width="1280" height="984" />
+    </state>
+    <state x="-1129" y="512" width="1187" height="854" maximized="true" key="DiffContextDialog/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589913153576" />
+    <state x="1061" y="456" key="FileChooserDialogImpl" timestamp="1589114974835">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589114974835" />
+    <state width="2517" height="394" key="GridCell.Tab.0.bottom" timestamp="1589914577383">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="394" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589914577383" />
+    <state width="2517" height="394" key="GridCell.Tab.0.center" timestamp="1589914577383">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="394" key="GridCell.Tab.0.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589914577383" />
+    <state width="2517" height="394" key="GridCell.Tab.0.left" timestamp="1589914577383">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="394" key="GridCell.Tab.0.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589914577383" />
+    <state width="2517" height="394" key="GridCell.Tab.0.right" timestamp="1589914577383">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="394" key="GridCell.Tab.0.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589914577383" />
+    <state width="2517" height="484" key="GridCell.Tab.1.bottom" timestamp="1588968188365">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="484" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588968188365" />
+    <state width="2517" height="484" key="GridCell.Tab.1.center" timestamp="1588968188365">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="484" key="GridCell.Tab.1.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588968188365" />
+    <state width="2517" height="484" key="GridCell.Tab.1.left" timestamp="1588968188364">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="484" key="GridCell.Tab.1.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588968188364" />
+    <state width="2517" height="484" key="GridCell.Tab.1.right" timestamp="1588968188365">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="484" key="GridCell.Tab.1.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588968188365" />
+    <state x="761" y="275" key="SettingsEditor" timestamp="1588788145744">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="761" y="275" key="SettingsEditor/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588788145744" />
+    <state x="1002" y="442" width="561" height="540" key="StructurePopup" timestamp="1588868542292">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1002" y="442" width="561" height="540" key="StructurePopup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588868542292" />
+    <state x="873" y="430" key="Vcs.Push.Dialog.v2" timestamp="1589911751647">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="873" y="430" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589911751647" />
+    <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589913130792">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589913130792" />
+    <state x="-1280" y="523" width="1296" height="961" key="dock-window-1" timestamp="1588868825894">
+      <screen x="-1280" y="523" width="1280" height="984" />
+    </state>
+    <state x="-1280" y="523" width="1296" height="961" key="dock-window-1/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588868825894" />
+    <state x="-1288" y="515" width="1296" height="1086" maximized="true" key="dock-window-2" timestamp="1588874344590">
+      <screen x="-1280" y="523" width="1280" height="984" />
+    </state>
+    <state x="-1288" y="515" width="1296" height="1086" maximized="true" key="dock-window-2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588874344590" />
+    <state x="988" y="388" width="585" height="624" key="find.popup" timestamp="1589104285787">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="988" y="388" width="585" height="624" key="find.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589104285787" />
+    <state x="937" y="331" key="run.anything.popup" timestamp="1589032928842">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="937" y="331" key="run.anything.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589032928842" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1589915559653">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589915559653" />
+  </component>
+</project>

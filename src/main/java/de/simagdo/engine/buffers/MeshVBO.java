@@ -20,7 +20,6 @@ public class MeshVBO implements VBO {
         this.vaoId = glGenVertexArrays();
     }
 
-    @Override
     public void allocate(Mesh mesh) {
         this.size = mesh.getIndices().length;
         glBindVertexArray(this.vaoId);

@@ -26,8 +26,11 @@ public abstract class Component {
         this.parent = parent;
     }
 
-    public Transform getTransform() {
-        return this.getParent().getTransform();
+    public Transform getWorldTransform() {
+        return this.getParent().getWorldTransform();
     }
 
+    public Transform getLocalTransform() {
+        return this.getParent().getLocalTransform();
+    }
 }

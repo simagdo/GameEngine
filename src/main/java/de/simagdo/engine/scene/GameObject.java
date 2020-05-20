@@ -4,26 +4,30 @@ import de.simagdo.math.Transform;
 
 import java.util.HashMap;
 
-public class GameObject {
+public class GameObject extends Node {
 
     private HashMap<String, Component> components;
-    private Transform transform;
 
     public GameObject() {
         this.components = new HashMap<>();
-        this.transform = new Transform();
     }
 
     public void input() {
         this.components.keySet().forEach(key -> this.components.get(key).input());
+
+        super.input();
     }
 
     public void update() {
         for (String key : this.components.keySet()) this.components.get(key).update();
+
+        super.update();
     }
 
     public void render() {
         for (String key : this.components.keySet()) this.components.get(key).render();
+
+        super.render();
     }
 
     public void addComponent(String key, Component component) {
@@ -39,11 +43,4 @@ public class GameObject {
         this.components = components;
     }
 
-    public Transform getTransform() {
-        return transform;
-    }
-
-    public void setTransform(Transform transform) {
-        this.transform = transform;
-    }
 }
