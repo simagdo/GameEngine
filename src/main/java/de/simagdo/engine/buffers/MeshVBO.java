@@ -31,7 +31,7 @@ public class MeshVBO implements VBO {
 
         glVertexAttribPointer(0, 3, GL_FLOAT, false, Float.BYTES * 8, 0);
         glVertexAttribPointer(1, 3, GL_FLOAT, false, Float.BYTES * 8, Float.BYTES * 3);
-        glVertexAttribPointer(2, 3, GL_FLOAT, false, Float.BYTES * 8, Float.BYTES * 6);
+        glVertexAttribPointer(2, 2, GL_FLOAT, false, Float.BYTES * 8, Float.BYTES * 6);
 
         glBindVertexArray(0);
     }
