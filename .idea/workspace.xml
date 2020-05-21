@@ -19,8 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="Terrain Quadtree #2">
+    <list default="true" id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="Fixing Bug with Terrain Quadtree #2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/settings/terrain_settings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings/terrain_settings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_TC.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_TC.glsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +115,7 @@
       <workItem from="1589911674098" duration="109000" />
       <workItem from="1589911795112" duration="224000" />
       <workItem from="1589912031410" duration="3588000" />
-      <workItem from="1589982555049" duration="3817000" />
+      <workItem from="1589982555049" duration="5262000" />
     </task>
     <task id="LOCAL-00001" summary="Creating the initial Game Engine.">
       <created>1588952714907</created>
@@ -162,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589996082706</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixing Bug with Terrain Quadtree #2">
+      <created>1590007149655</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590007149655</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,13 +209,14 @@
     <MESSAGE value="Working Terrain Quadtree" />
     <MESSAGE value="Fixing Bug with Terrain Quadtree" />
     <MESSAGE value="Terrain Quadtree #2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terrain Quadtree #2" />
+    <MESSAGE value="Fixing Bug with Terrain Quadtree #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing Bug with Terrain Quadtree #2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1589913762589">
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1590007570244">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589913762589" />
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590007570244" />
     <state x="855" y="625" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588793315827">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -225,22 +237,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589114974835" />
-    <state width="2517" height="394" key="GridCell.Tab.0.bottom" timestamp="1589995997399">
+    <state width="2517" height="394" key="GridCell.Tab.0.bottom" timestamp="1590008085969">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589995997399" />
-    <state width="2517" height="394" key="GridCell.Tab.0.center" timestamp="1589995997398">
+    <state width="2517" height="394" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
+    <state width="2517" height="394" key="GridCell.Tab.0.center" timestamp="1590008085969">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589995997398" />
-    <state width="2517" height="394" key="GridCell.Tab.0.left" timestamp="1589995997398">
+    <state width="2517" height="394" key="GridCell.Tab.0.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
+    <state width="2517" height="394" key="GridCell.Tab.0.left" timestamp="1590008085969">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589995997398" />
-    <state width="2517" height="394" key="GridCell.Tab.0.right" timestamp="1589995997398">
+    <state width="2517" height="394" key="GridCell.Tab.0.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
+    <state width="2517" height="394" key="GridCell.Tab.0.right" timestamp="1590008085969">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589995997398" />
+    <state width="2517" height="394" key="GridCell.Tab.0.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
     <state width="2517" height="484" key="GridCell.Tab.1.bottom" timestamp="1589983535189">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -269,10 +281,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1002" y="442" width="561" height="540" key="StructurePopup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588868542292" />
-    <state x="873" y="430" key="Vcs.Push.Dialog.v2" timestamp="1589996088693">
+    <state x="873" y="430" key="Vcs.Push.Dialog.v2" timestamp="1590007153968">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="873" y="430" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589996088693" />
+    <state x="873" y="430" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590007153968" />
     <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589983603299">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -297,9 +309,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="937" y="331" key="run.anything.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589032928842" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1589995988022">
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1590007769488">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589995988022" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590007769488" />
   </component>
 </project>

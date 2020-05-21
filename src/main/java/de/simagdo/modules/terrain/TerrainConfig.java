@@ -11,6 +11,9 @@ public class TerrainConfig {
     private float scaleXZ;
     private int[] lodRange = new int[8];
     private int[] lodMorphingArea = new int[8];
+    private int tessellationFactor;
+    private float tessellationSlope;
+    private float tessellationShift;
 
     public void loadFile(String file) {
         try {
@@ -28,6 +31,15 @@ public class TerrainConfig {
                         break;
                     case "scaleXZ":
                         this.setScaleXZ(Float.parseFloat(tokens[1]));
+                        break;
+                    case "tessellationFactor":
+                        this.setTessellationFactor(Integer.parseInt(tokens[1]));
+                        break;
+                    case "tessellationSlope":
+                        this.setTessellationSlope(Float.parseFloat(tokens[1]));
+                        break;
+                    case "tessellationShift":
+                        this.setTessellationShift(Float.parseFloat(tokens[1]));
                         break;
                     case "#lod_ranges":
                         for (int i = 0; i < 8; i++) {
@@ -92,5 +104,29 @@ public class TerrainConfig {
 
     public void setLodMorphingArea(int[] lodMorphingArea) {
         this.lodMorphingArea = lodMorphingArea;
+    }
+
+    public int getTessellationFactor() {
+        return tessellationFactor;
+    }
+
+    public void setTessellationFactor(int tessellationFactor) {
+        this.tessellationFactor = tessellationFactor;
+    }
+
+    public float getTessellationSlope() {
+        return tessellationSlope;
+    }
+
+    public void setTessellationSlope(float tessellationSlope) {
+        this.tessellationSlope = tessellationSlope;
+    }
+
+    public float getTessellationShift() {
+        return tessellationShift;
+    }
+
+    public void setTessellationShift(float tessellationShift) {
+        this.tessellationShift = tessellationShift;
     }
 }

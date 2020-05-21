@@ -36,6 +36,10 @@ public class TerrainShader extends Shader {
         this.addUniform("location");
         this.addUniform("cameraPosition");
 
+        this.addUniform("tessellationFactor");
+        this.addUniform("tessellationSlope");
+        this.addUniform("tessellationShift");
+
         for (int i = 0; i < 8; i++) {
             this.addUniform("lodMorphArea[" + i + "]");
         }
@@ -55,6 +59,10 @@ public class TerrainShader extends Shader {
         for (int i = 0; i < 8; i++) {
             this.setUniformi("lodMorphArea[" + i + "]", terrainNode.getConfig().getLodMorphingArea()[i]);
         }
+
+        this.setUniformi("tessellationFactor", terrainNode.getConfig().getTessellationFactor());
+        this.setUniformf("tessellationSlope", terrainNode.getConfig().getTessellationSlope());
+        this.setUniformf("tessellationShift", terrainNode.getConfig().getTessellationShift());
 
         this.setUniform("cameraPosition", Camera.getInstance().getPosition());
         this.setUniform("m_ViewProjection", Camera.getInstance().getViewProjectionMatrix());
