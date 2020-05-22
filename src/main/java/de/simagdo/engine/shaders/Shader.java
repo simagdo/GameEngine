@@ -26,7 +26,7 @@ public class Shader {
 
     public Shader() {
         program = glCreateProgram();
-        uniforms = new HashMap<String, Integer>();
+        uniforms = new HashMap<>();
 
         if (program == 0) {
             System.err.println("Shader creation failed");
