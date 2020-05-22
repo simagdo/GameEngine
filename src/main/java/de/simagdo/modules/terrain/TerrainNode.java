@@ -170,4 +170,9 @@ public class TerrainNode extends GameObject {
     public void setBuffer(PatchVBO buffer) {
         this.buffer = buffer;
     }
+
+    public TerrainNode getQuadtreeParent() {
+        return (TerrainNode) getParent();
+    }
+
 }
