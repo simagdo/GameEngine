@@ -1,5 +1,7 @@
 package de.simagdo.modules.terrain;
 
+import de.simagdo.engine.texturing.Texture2D;
+import de.simagdo.modules.gpgpu.NormalMapRenderer;
 import utils.Utils;
 
 import java.io.BufferedReader;
@@ -14,6 +16,8 @@ public class TerrainConfig {
     private int tessellationFactor;
     private float tessellationSlope;
     private float tessellationShift;
+    private Texture2D heightMap;
+    private Texture2D normalMap;
 
     public void loadFile(String file) {
         try {
@@ -55,6 +59,17 @@ public class TerrainConfig {
                                 }
                             }
                         }
+                        break;
+                    case "heightmap":
+                        this.setHeightMap(new Texture2D(tokens[1]));
+                        this.getHeightMap().bind();
+                        this.heightMap.bilinearFilter();
+
+                        NormalMapRenderer normalMapRenderer = new NormalMapRenderer(this.getHeightMap().getWidth());
+                        normalMapRenderer.setStrength(4);
+                        normalMapRenderer.render(this.getHeightMap());
+                        this.setNormalMap(normalMapRenderer.getNormalMap());
+
                         break;
                 }
 
@@ -128,5 +143,21 @@ public class TerrainConfig {
 
     public void setTessellationShift(float tessellationShift) {
         this.tessellationShift = tessellationShift;
+    }
+
+    public Texture2D getHeightMap() {
+        return heightMap;
+    }
+
+    public void setHeightMap(Texture2D heightMap) {
+        this.heightMap = heightMap;
+    }
+
+    public Texture2D getNormalMap() {
+        return normalMap;
+    }
+
+    public void setNormalMap(Texture2D normalMap) {
+        this.normalMap = normalMap;
     }
 }

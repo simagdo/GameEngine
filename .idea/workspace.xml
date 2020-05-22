@@ -19,12 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="Fixing Bug with Terrain Quadtree #2">
+    <list default="true" id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="Tessellation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/gpgpu/NormalMapRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/gpgpu/NormalMapShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/shaders/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/shaders/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ImageLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/settings/terrain_settings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings/terrain_settings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/gpgpu/NormalMap.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/gpgpu/NormalMap.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_GS.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_GS.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_TC.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_TC.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_TE.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_TE.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_VS.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_VS.glsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +72,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -116,6 +124,8 @@
       <workItem from="1589911795112" duration="224000" />
       <workItem from="1589912031410" duration="3588000" />
       <workItem from="1589982555049" duration="5262000" />
+      <workItem from="1590051099236" duration="350000" />
+      <workItem from="1590051520663" duration="6701000" />
     </task>
     <task id="LOCAL-00001" summary="Creating the initial Game Engine.">
       <created>1588952714907</created>
@@ -173,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590007149655</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Tessellation">
+      <created>1590051137515</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1590051137515</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,13 +227,14 @@
     <MESSAGE value="Fixing Bug with Terrain Quadtree" />
     <MESSAGE value="Terrain Quadtree #2" />
     <MESSAGE value="Fixing Bug with Terrain Quadtree #2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing Bug with Terrain Quadtree #2" />
+    <MESSAGE value="Tessellation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tessellation" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1590007570244">
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1590053493712">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590007570244" />
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590053493712" />
     <state x="855" y="625" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588793315827">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -225,10 +243,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589025371870" />
-    <state width="438" height="646" key="DebuggerActiveHint" timestamp="1589983208558">
+    <state width="438" height="646" key="DebuggerActiveHint" timestamp="1590054230926">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="438" height="646" key="DebuggerActiveHint/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589983208558" />
+    <state width="438" height="646" key="DebuggerActiveHint/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590054230926" />
     <state x="-1129" y="512" width="1187" height="854" maximized="true" key="DiffContextDialog" timestamp="1589983480543">
       <screen x="-1280" y="523" width="1280" height="984" />
     </state>
@@ -237,46 +255,46 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589114974835" />
-    <state width="2517" height="394" key="GridCell.Tab.0.bottom" timestamp="1590008085969">
+    <state width="2517" height="394" key="GridCell.Tab.0.bottom" timestamp="1590090950392">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
-    <state width="2517" height="394" key="GridCell.Tab.0.center" timestamp="1590008085969">
+    <state width="2517" height="394" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090950392" />
+    <state width="2517" height="394" key="GridCell.Tab.0.center" timestamp="1590090950392">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
-    <state width="2517" height="394" key="GridCell.Tab.0.left" timestamp="1590008085969">
+    <state width="2517" height="394" key="GridCell.Tab.0.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090950392" />
+    <state width="2517" height="394" key="GridCell.Tab.0.left" timestamp="1590090950392">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
-    <state width="2517" height="394" key="GridCell.Tab.0.right" timestamp="1590008085969">
+    <state width="2517" height="394" key="GridCell.Tab.0.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090950392" />
+    <state width="2517" height="394" key="GridCell.Tab.0.right" timestamp="1590090950392">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="394" key="GridCell.Tab.0.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590008085969" />
-    <state width="2517" height="484" key="GridCell.Tab.1.bottom" timestamp="1589983535189">
+    <state width="2517" height="394" key="GridCell.Tab.0.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090950392" />
+    <state width="2517" height="484" key="GridCell.Tab.1.bottom" timestamp="1590090173976">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="484" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589983535189" />
-    <state width="2517" height="484" key="GridCell.Tab.1.center" timestamp="1589983535189">
+    <state width="2517" height="484" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090173976" />
+    <state width="2517" height="484" key="GridCell.Tab.1.center" timestamp="1590090173976">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="484" key="GridCell.Tab.1.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589983535189" />
-    <state width="2517" height="484" key="GridCell.Tab.1.left" timestamp="1589983535189">
+    <state width="2517" height="484" key="GridCell.Tab.1.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090173976" />
+    <state width="2517" height="484" key="GridCell.Tab.1.left" timestamp="1590090173976">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="484" key="GridCell.Tab.1.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589983535189" />
-    <state width="2517" height="484" key="GridCell.Tab.1.right" timestamp="1589983535189">
+    <state width="2517" height="484" key="GridCell.Tab.1.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090173976" />
+    <state width="2517" height="484" key="GridCell.Tab.1.right" timestamp="1590090173976">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="484" key="GridCell.Tab.1.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589983535189" />
+    <state width="2517" height="484" key="GridCell.Tab.1.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090173976" />
     <state x="1154" y="560" width="386" height="281" key="MultipleFileMergeDialog" timestamp="1589982805648">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1154" y="560" width="386" height="281" key="MultipleFileMergeDialog/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589982805648" />
-    <state x="761" y="275" key="SettingsEditor" timestamp="1588788145744">
+    <state x="761" y="275" key="SettingsEditor" timestamp="1590051869196">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="761" y="275" key="SettingsEditor/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588788145744" />
+    <state x="761" y="275" key="SettingsEditor/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590051869196" />
     <state x="1002" y="442" width="561" height="540" key="StructurePopup" timestamp="1588868542292">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -285,22 +303,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="873" y="430" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590007153968" />
-    <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589983603299">
+    <state width="1287" height="707" key="XDebugger.FullValuePopup" timestamp="1590054852800">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589983603299" />
-    <state x="-1280" y="523" width="1296" height="961" key="dock-window-1" timestamp="1588868825894">
+    <state width="1287" height="707" key="XDebugger.FullValuePopup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590054852800" />
+    <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590052829359">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590052829359" />
+    <state x="-1280" y="523" width="1296" height="961" maximized="true" key="dock-window-1" timestamp="1590090974041">
       <screen x="-1280" y="523" width="1280" height="984" />
     </state>
-    <state x="-1280" y="523" width="1296" height="961" key="dock-window-1/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588868825894" />
+    <state x="-1280" y="523" width="1296" height="961" maximized="true" key="dock-window-1/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590090974041" />
     <state x="-1288" y="515" width="1296" height="1086" maximized="true" key="dock-window-2" timestamp="1588874344590">
       <screen x="-1280" y="523" width="1280" height="984" />
     </state>
     <state x="-1288" y="515" width="1296" height="1086" maximized="true" key="dock-window-2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588874344590" />
-    <state x="988" y="388" width="585" height="624" key="find.popup" timestamp="1589104285787">
+    <state x="988" y="388" width="585" height="624" key="find.popup" timestamp="1590058283040">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="988" y="388" width="585" height="624" key="find.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589104285787" />
+    <state x="988" y="388" width="585" height="624" key="find.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590058283040" />
     <state x="1009" y="474" key="git4idea.merge.GitPullDialog" timestamp="1589982926866">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -309,9 +331,25 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="937" y="331" key="run.anything.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589032928842" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1590007769488">
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1590089974553">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590007769488" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590089974553" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/simagdo/modules/gpgpu/NormalMapShader.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

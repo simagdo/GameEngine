@@ -5,6 +5,9 @@ import de.simagdo.engine.scene.GameObject;
 import de.simagdo.engine.shaders.Shader;
 import utils.Utils;
 
+import static org.lwjgl.opengl.GL13C.GL_TEXTURE0;
+import static org.lwjgl.opengl.GL13C.glActiveTexture;
+
 public class TerrainShader extends Shader {
 
     private static TerrainShader instance = null;
@@ -27,7 +30,7 @@ public class TerrainShader extends Shader {
 
         this.addUniform("localMatrix");
         this.addUniform("worldMatrix");
-        this.addUniform("m_ViewProjection");
+        this.addUniform("mViewProjection");
 
         this.addUniform("index");
         this.addUniform("gap");
@@ -39,6 +42,8 @@ public class TerrainShader extends Shader {
         this.addUniform("tessellationFactor");
         this.addUniform("tessellationSlope");
         this.addUniform("tessellationShift");
+
+        this.addUniform("heightmap");
 
         for (int i = 0; i < 8; i++) {
             this.addUniform("lodMorphArea[" + i + "]");
@@ -59,6 +64,10 @@ public class TerrainShader extends Shader {
         for (int i = 0; i < 8; i++) {
             this.setUniformi("lodMorphArea[" + i + "]", terrainNode.getConfig().getLodMorphingArea()[i]);
         }
+
+        glActiveTexture(GL_TEXTURE0);
+        terrainNode.getConfig().getHeightMap().bind();
+        this.setUniformi("heightmap", 0);
 
         this.setUniformi("tessellationFactor", terrainNode.getConfig().getTessellationFactor());
         this.setUniformf("tessellationSlope", terrainNode.getConfig().getTessellationSlope());

@@ -61,9 +61,7 @@ public class ImageLoader {
 
         stbi_image_free(image);
 
-        int[] data = {texId, w.get(), h.get()};
-
-        return data;
+        return new int[]{texId, w.get(), h.get()};
     }
 
     public static ByteBuffer loadImageToByteBuffer(String file) {

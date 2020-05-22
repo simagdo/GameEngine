@@ -2,6 +2,8 @@
 
 layout (location = 0) in vec2 position0;
 
+out vec2 mapCoordTC;
+
 uniform vec3 cameraPosition;
 uniform mat4 localMatrix;
 uniform mat4 worldMatrix;
@@ -11,6 +13,7 @@ uniform vec2 index;
 uniform float gap;
 uniform vec2 location;
 uniform int[8] lodMorphArea;
+uniform sampler2D heightmap;
 
 float morphLatitude(vec2 position) {
     vec2 frac = position - location;
@@ -116,5 +119,8 @@ void main() {
         localPosition += morph(localPosition, lodMorphArea[lod - 1]);
     }
 
-    gl_Position = worldMatrix * vec4(localPosition.x, 0, localPosition.y, 1);
+    float height = texture(heightmap, localPosition).r;
+
+    mapCoordTC = localPosition;
+    gl_Position = worldMatrix * vec4(localPosition.x, height, localPosition.y, 1);
 }
