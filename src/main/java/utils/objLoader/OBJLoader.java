@@ -9,10 +9,8 @@ import de.simagdo.math.Vec2f;
 import de.simagdo.math.Vec3f;
 import utils.Utils;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -69,17 +67,17 @@ public class OBJLoader {
                     }
                     if (tokens[0].equals("map_Kd")) {
                         if (tokens.length > 1) {
-                            materials.get(currentMtl).setDiffusemap(new Texture2D(path + "/" + tokens[1]));
+                            materials.get(currentMtl).setDiffuseMap(new Texture2D(path + "/" + tokens[1]));
                         }
                     }
                     if (tokens[0].equals("map_Ks")) {
                         if (tokens.length > 1) {
-                            materials.get(currentMtl).setSpecularmap(new Texture2D(path + "/" + tokens[1]));
+                            materials.get(currentMtl).setSpecularMap(new Texture2D(path + "/" + tokens[1]));
                         }
                     }
                     if (tokens[0].equals("map_bump")) {
                         if (tokens.length > 1) {
-                            materials.get(currentMtl).setNormalmap(new Texture2D(path + "/" + tokens[1]));
+                            materials.get(currentMtl).setNormalMap(new Texture2D(path + "/" + tokens[1]));
                         }
                     }
                     if (tokens[0].equals("illum")) {

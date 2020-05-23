@@ -6,12 +6,12 @@ import de.simagdo.math.Vec3f;
 public class Material {
 
     private String name;
-    private Texture2D diffusemap;
-    private Texture2D normalmap;
-    private Texture2D displacemap;
-    private Texture2D ambientmap;
-    private Texture2D specularmap;
-    private Texture2D alphamap;
+    private Texture2D diffuseMap;
+    private Texture2D normalMap;
+    private Texture2D displaceMap;
+    private Texture2D ambientMap;
+    private Texture2D specularMap;
+    private Texture2D alphaMap;
     private Vec3f color;
     private float alpha;
     private float displaceScale;
@@ -19,52 +19,52 @@ public class Material {
     private float shininess;
     private float horizontalScale;
 
-    public Texture2D getDiffusemap() {
-        return diffusemap;
+    public Texture2D getDiffuseMap() {
+        return diffuseMap;
     }
 
-    public void setDiffusemap(Texture2D diffusemap) {
-        this.diffusemap = diffusemap;
+    public void setDiffuseMap(Texture2D diffuseMap) {
+        this.diffuseMap = diffuseMap;
     }
 
-    public Texture2D getNormalmap() {
-        return normalmap;
+    public Texture2D getNormalMap() {
+        return normalMap;
     }
 
-    public void setNormalmap(Texture2D normalmap) {
-        this.normalmap = normalmap;
+    public void setNormalMap(Texture2D normalMap) {
+        this.normalMap = normalMap;
     }
 
-    public Texture2D getDisplacemap() {
-        return displacemap;
+    public Texture2D getDisplaceMap() {
+        return displaceMap;
     }
 
-    public void setDisplacemap(Texture2D displacemap) {
-        this.displacemap = displacemap;
+    public void setDisplacMmap(Texture2D displaceMap) {
+        this.displaceMap = displaceMap;
     }
 
-    public Texture2D getAmbientmap() {
-        return ambientmap;
+    public Texture2D getAmbientMap() {
+        return ambientMap;
     }
 
-    public void setAmbientmap(Texture2D ambientmap) {
-        this.ambientmap = ambientmap;
+    public void setAmbientMap(Texture2D ambientMap) {
+        this.ambientMap = ambientMap;
     }
 
-    public Texture2D getSpecularmap() {
-        return specularmap;
+    public Texture2D getSpecularMap() {
+        return specularMap;
     }
 
-    public void setSpecularmap(Texture2D specularmap) {
-        this.specularmap = specularmap;
+    public void setSpecularMap(Texture2D specularMap) {
+        this.specularMap = specularMap;
     }
 
-    public Texture2D getAlphamap() {
-        return alphamap;
+    public Texture2D getAlphaMap() {
+        return alphaMap;
     }
 
-    public void setAlphamap(Texture2D alphamap) {
-        this.alphamap = alphamap;
+    public void setAlphaMap(Texture2D alphaMap) {
+        this.alphaMap = alphaMap;
     }
 
     public Vec3f getColor() {

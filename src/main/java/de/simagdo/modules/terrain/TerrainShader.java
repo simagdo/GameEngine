@@ -50,6 +50,16 @@ public class TerrainShader extends Shader {
             this.addUniform("lodMorphArea[" + i + "]");
         }
 
+        this.addUniform("tbnRange");
+
+        for (int i = 0; i < 2; i++) {
+            this.addUniform("materials[" + i + "].diffuseMap");
+            this.addUniform("materials[" + i + "].normalMap");
+            this.addUniform("materials[" + i + "].heightMap");
+            this.addUniform("materials[" + i + "].heightScaling");
+            this.addUniform("materials[" + i + "].horizontalScaling");
+        }
+
     }
 
     public void updateUniforms(GameObject gameObject) {
@@ -82,6 +92,33 @@ public class TerrainShader extends Shader {
         this.setUniform("m_ViewProjection", Camera.getInstance().getViewProjectionMatrix());
         this.setUniform("localMatrix", gameObject.getLocalTransform().getWorldMatrix());
         this.setUniform("worldMatrix", gameObject.getWorldTransform().getWorldMatrix());
+
+        this.setUniformi("tbnRange", terrainNode.getConfig().getTbnRange());
+
+        int texUnit = 2;
+        for (int i = 0; i < 2; i++) {
+
+            //Diffuse Map
+            glActiveTexture(GL_TEXTURE0 + texUnit);
+            terrainNode.getConfig().getMaterials().get(i).getDiffuseMap().bind();
+            this.setUniformi("materials[" + i + "].diffuseMap", texUnit);
+            texUnit++;
+
+            //Displace Map
+            glActiveTexture(GL_TEXTURE0 + texUnit);
+            terrainNode.getConfig().getMaterials().get(i).getDisplaceMap().bind();
+            this.setUniformi("materials[" + i + "].heightMap", texUnit);
+            texUnit++;
+
+            //Normal Map
+            glActiveTexture(GL_TEXTURE0 + texUnit);
+            terrainNode.getConfig().getMaterials().get(i).getNormalMap().bind();
+            this.setUniformi("materials[" + i + "].normalMap", texUnit);
+            texUnit++;
+
+            this.setUniformf("materials[" + i + "].heightScaling", terrainNode.getConfig().getMaterials().get(i).getDisplaceScale());
+            this.setUniformf("materials[" + i + "].horizontalScaling", terrainNode.getConfig().getMaterials().get(i).getHorizontalScale());
+        }
 
     }
 

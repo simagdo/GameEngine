@@ -1,11 +1,14 @@
 package de.simagdo.modules.terrain;
 
+import de.simagdo.engine.model.Material;
 import de.simagdo.engine.texturing.Texture2D;
 import de.simagdo.modules.gpgpu.NormalMapRenderer;
 import utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TerrainConfig {
 
@@ -18,6 +21,8 @@ public class TerrainConfig {
     private float tessellationShift;
     private Texture2D heightmap;
     private Texture2D normalmap;
+    private int tbnRange;
+    private List<Material> materials = new ArrayList<>();
 
     public void loadFile(String file) {
         try {
@@ -69,7 +74,36 @@ public class TerrainConfig {
                         renderer.setStrength(8);
                         renderer.render(this.getHeightmap());
                         this.setNormalmap(renderer.getNormalmap());
-
+                        break;
+                    case "tbnRange":
+                        this.setTbnRange(Integer.parseInt(tokens[1]));
+                        break;
+                    case "material":
+                        this.getMaterials().add(new Material());
+                        break;
+                    case "materialDIF":
+                        Texture2D diffuseMap = new Texture2D(tokens[1]);
+                        diffuseMap.bind();
+                        diffuseMap.trilinearFilter();
+                        this.getMaterials().get(this.materials.size() - 1).setDiffuseMap(diffuseMap);
+                        break;
+                    case "materialNRM":
+                        Texture2D normalMap = new Texture2D(tokens[1]);
+                        normalMap.bind();
+                        normalMap.trilinearFilter();
+                        this.getMaterials().get(this.materials.size() - 1).setNormalMap(normalMap);
+                        break;
+                    case "materialDISP":
+                        Texture2D displaceMap = new Texture2D(tokens[1]);
+                        displaceMap.bind();
+                        displaceMap.trilinearFilter();
+                        this.getMaterials().get(this.materials.size() - 1).setDisplacMmap(displaceMap);
+                        break;
+                    case "materialHeightScaling":
+                        this.getMaterials().get(this.materials.size() - 1).setDisplaceScale(Float.parseFloat(tokens[1]));
+                        break;
+                    case "materialHorizontalScaling":
+                        this.getMaterials().get(this.materials.size() - 1).setHorizontalScale(Float.parseFloat(tokens[1]));
                         break;
                 }
 
@@ -159,5 +193,21 @@ public class TerrainConfig {
 
     public void setNormalmap(Texture2D normalmap) {
         this.normalmap = normalmap;
+    }
+
+    public int getTbnRange() {
+        return tbnRange;
+    }
+
+    public void setTbnRange(int tbnRange) {
+        this.tbnRange = tbnRange;
+    }
+
+    public List<Material> getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(List<Material> materials) {
+        this.materials = materials;
     }
 }
