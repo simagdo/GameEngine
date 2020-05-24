@@ -15,12 +15,13 @@ struct Material {
 };
 
 uniform sampler2D normalmap;
-uniform Material[2] materials;
+uniform sampler2D splatmap;
+uniform Material[3] materials;
 uniform int tbnRange;
 uniform vec3 cameraPosition;
 
 const vec3 direction = vec3(0.1, -1.0, 0.1);
-const float intensity = 1.2;
+const float intensity = 0.8;
 
 float diffuse(vec3 direction, vec3 normal, float intensity) {
     return max(0.04, dot(normal, -direction) * intensity);
@@ -31,18 +32,11 @@ void main() {
     float dist = length(cameraPosition - positionFS);
     float height = positionFS.y;
 
-    vec3 normal = normalize(texture(normalmap, mapCoordFS).rgb);
+    vec3 normal = normalize(texture(normalmap, mapCoordFS).rbg);
 
-    vec3 materialColor0 = texture(materials[0].diffuseMap, mapCoordFS * materials[0].horizontalScaling).rgb;
-    vec3 materialColor1 = texture(materials[1].diffuseMap, mapCoordFS * materials[1].horizontalScaling).rgb;
+    vec4 blendValues = texture(splatmap, mapCoordFS).rgba;
 
-    float[2] materialAlpha = float[](0, 0);
-
-    if (normal.y > 0.5) {
-        materialAlpha[1] = 1;
-    } else {
-        materialAlpha[0] = 1;
-    }
+    float[4] blendValuesArray = float[](blendValues.r, blendValues.g, blendValues.b, blendValues.a);
 
     if (dist < tbnRange - 50) {
         float attenuation = clamp(-dist / (tbnRange - 50) + 1, 0.0, 1.0);
@@ -52,8 +46,8 @@ void main() {
 
         vec3 bumpNormal;
 
-        for (int i = 0; i < 2; i++) {
-            bumpNormal += (2 * (texture(materials[i].normalMap, mapCoordFS * materials[i].horizontalScaling).rbg) - 1) * materialAlpha[i];
+        for (int i = 0; i < 3; i++) {
+            bumpNormal += (2 * (texture(materials[i].normalMap, mapCoordFS * materials[i].horizontalScaling).rbg) - 1) * blendValuesArray[i];
         }
 
         bumpNormal = normalize(bumpNormal);
@@ -64,7 +58,10 @@ void main() {
 
     }
 
-    vec3 fragColor = materialColor0 * materialAlpha[0] + materialColor1 * materialAlpha[1];
+    vec3 fragColor = vec3(0, 0, 0);
+    for (int i = 0; i< 3;i++){
+        fragColor += texture(materials[i].diffuseMap, mapCoordFS * materials[i].horizontalScaling).rgb * blendValuesArray[i];
+    }
 
     float diffuse = diffuse(direction, normal, intensity);
 

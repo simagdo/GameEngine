@@ -22,16 +22,26 @@ lod8_range 0
 
 #materials
 
-material
-materialDIF textures/terrain/Ground_11_DIF.jpg
-materialNRM textures/terrain/Ground_11_NRM.jpg
-materialDISP textures/terrain/Ground_11_DISP.jpg
-materialHeightScaling 0.4
-materialHorizontalScaling 400.0
-
+#grass
 material
 materialDIF textures/terrain/Ground_17_DIF.jpg
 materialNRM textures/terrain/Ground_17_NRM.jpg
 materialDISP textures/terrain/Ground_17_DISP.jpg
-materialHeightScaling 1.2
+materialHeightScaling 1.0
+materialHorizontalScaling 200.0
+
+#sand
+material
+materialDIF textures/terrain/Ground_11_DIF.jpg
+materialNRM textures/terrain/Ground_11_NRM.jpg
+materialDISP textures/terrain/Ground_11_DISP.jpg
+materialHeightScaling 0.8
+materialHorizontalScaling 400.0
+
+#rock
+material
+materialDIF textures/terrain/Ground_21_DIF.jpg
+materialNRM textures/terrain/Ground_21_NRM.jpg
+materialDISP textures/terrain/Ground_21_DISP.jpg
+materialHeightScaling 2.0
 materialHorizontalScaling 200.0

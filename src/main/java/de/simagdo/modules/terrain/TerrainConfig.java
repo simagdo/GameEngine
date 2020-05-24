@@ -3,6 +3,7 @@ package de.simagdo.modules.terrain;
 import de.simagdo.engine.model.Material;
 import de.simagdo.engine.texturing.Texture2D;
 import de.simagdo.modules.gpgpu.NormalMapRenderer;
+import de.simagdo.modules.gpgpu.SplatMapRenderer;
 import utils.Utils;
 
 import java.io.BufferedReader;
@@ -21,6 +22,7 @@ public class TerrainConfig {
     private float tessellationShift;
     private Texture2D heightmap;
     private Texture2D normalmap;
+    private Texture2D splatmap;
     private int tbnRange;
     private List<Material> materials = new ArrayList<>();
 
@@ -71,9 +73,14 @@ public class TerrainConfig {
                         this.getHeightmap().bilinearFilter();
 
                         NormalMapRenderer renderer = new NormalMapRenderer(this.getHeightmap().getWidth());
-                        renderer.setStrength(8);
+                        renderer.setStrength(60);
                         renderer.render(this.getHeightmap());
                         this.setNormalmap(renderer.getNormalmap());
+
+                        SplatMapRenderer splatMapRenderer = new SplatMapRenderer(this.getHeightmap().getWidth());
+                        splatMapRenderer.render(this.getNormalmap());
+                        this.setSplatmap(splatMapRenderer.getSplatMap());
+
                         break;
                     case "tbnRange":
                         this.setTbnRange(Integer.parseInt(tokens[1]));
@@ -209,5 +216,13 @@ public class TerrainConfig {
 
     public void setMaterials(List<Material> materials) {
         this.materials = materials;
+    }
+
+    public Texture2D getSplatmap() {
+        return splatmap;
+    }
+
+    public void setSplatmap(Texture2D splatmap) {
+        this.splatmap = splatmap;
     }
 }
