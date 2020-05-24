@@ -7,23 +7,23 @@ import utils.Utils;
 
 import static org.lwjgl.opengl.GL13C.*;
 
-public class TerrainShader extends Shader {
+public class TerrainWireframeShader extends Shader {
 
-    private static TerrainShader instance = null;
+    private static TerrainWireframeShader instance = null;
 
-    public static TerrainShader getInstance() {
-        if (instance == null) instance = new TerrainShader();
+    public static TerrainWireframeShader getInstance() {
+        if (instance == null) instance = new TerrainWireframeShader();
         return instance;
     }
 
-    protected TerrainShader() {
+    protected TerrainWireframeShader() {
         super();
 
         this.addVertexShader(Utils.getDataAsString("shaders/terrain/Terrain_VS.glsl"));
         this.addTessellationControlShader(Utils.getDataAsString("shaders/terrain/Terrain_TC.glsl"));
         this.addTessellationEvaluationShader(Utils.getDataAsString("shaders/terrain/Terrain_TE.glsl"));
-        this.addGeometryShader(Utils.getDataAsString("shaders/terrain/Terrain_GS.glsl"));
-        this.addFragmentShader(Utils.getDataAsString("shaders/terrain/Terrain_FS.glsl"));
+        this.addGeometryShader(Utils.getDataAsString("shaders/terrain/wireframe_GS.glsl"));
+        this.addFragmentShader(Utils.getDataAsString("shaders/terrain/wireframe_FS.glsl"));
 
         this.compileShader();
 
@@ -43,7 +43,6 @@ public class TerrainShader extends Shader {
         this.addUniform("tessellationShift");
 
         this.addUniform("heightmap");
-        this.addUniform("normalmap");
         this.addUniform("splatmap");
 
         for (int i = 0; i < 8; i++) {
@@ -53,8 +52,6 @@ public class TerrainShader extends Shader {
         this.addUniform("tbnRange");
 
         for (int i = 0; i < 3; i++) {
-            this.addUniform("materials[" + i + "].diffuseMap");
-            this.addUniform("materials[" + i + "].normalMap");
             this.addUniform("materials[" + i + "].heightMap");
             this.addUniform("materials[" + i + "].heightScaling");
             this.addUniform("materials[" + i + "].horizontalScaling");
@@ -80,10 +77,6 @@ public class TerrainShader extends Shader {
         terrainNode.getConfig().getHeightMap().bind();
         this.setUniformi("heightmap", 0);
 
-        glActiveTexture(GL_TEXTURE1);
-        terrainNode.getConfig().getNormalMap().bind();
-        this.setUniformi("normalmap", 1);
-
         glActiveTexture(GL_TEXTURE2);
         terrainNode.getConfig().getSplatMap().bind();
         this.setUniformi("splatmap", 2);
@@ -102,22 +95,10 @@ public class TerrainShader extends Shader {
         int texUnit = 3;
         for (int i = 0; i < 3; i++) {
 
-            //Diffuse Map
-            glActiveTexture(GL_TEXTURE0 + texUnit);
-            terrainNode.getConfig().getMaterials().get(i).getDiffuseMap().bind();
-            this.setUniformi("materials[" + i + "].diffuseMap", texUnit);
-            texUnit++;
-
             //Displace Map
             glActiveTexture(GL_TEXTURE0 + texUnit);
             terrainNode.getConfig().getMaterials().get(i).getDisplaceMap().bind();
             this.setUniformi("materials[" + i + "].heightMap", texUnit);
-            texUnit++;
-
-            //Normal Map
-            glActiveTexture(GL_TEXTURE0 + texUnit);
-            terrainNode.getConfig().getMaterials().get(i).getNormalMap().bind();
-            this.setUniformi("materials[" + i + "].normalMap", texUnit);
             texUnit++;
 
             this.setUniformf("materials[" + i + "].heightScaling", terrainNode.getConfig().getMaterials().get(i).getDisplaceScale());

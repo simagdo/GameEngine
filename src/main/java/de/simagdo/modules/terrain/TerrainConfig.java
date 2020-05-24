@@ -4,12 +4,17 @@ import de.simagdo.engine.model.Material;
 import de.simagdo.engine.texturing.Texture2D;
 import de.simagdo.modules.gpgpu.NormalMapRenderer;
 import de.simagdo.modules.gpgpu.SplatMapRenderer;
+import org.lwjgl.opengl.GL11;
+import utils.BufferUtil;
 import utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class TerrainConfig {
 
@@ -20,9 +25,10 @@ public class TerrainConfig {
     private int tessellationFactor;
     private float tessellationSlope;
     private float tessellationShift;
-    private Texture2D heightmap;
-    private Texture2D normalmap;
-    private Texture2D splatmap;
+    private Texture2D heightMap;
+    private Texture2D normalMap;
+    private Texture2D splatMap;
+    private FloatBuffer heightMapDataBuffer;
     private int tbnRange;
     private List<Material> materials = new ArrayList<>();
 
@@ -68,18 +74,20 @@ public class TerrainConfig {
                         }
                         break;
                     case "heightmap":
-                        this.setHeightmap(new Texture2D(tokens[1]));
-                        this.getHeightmap().bind();
-                        this.getHeightmap().bilinearFilter();
+                        this.setHeightMap(new Texture2D(tokens[1]));
+                        this.getHeightMap().bind();
+                        this.getHeightMap().bilinearFilter();
 
-                        NormalMapRenderer renderer = new NormalMapRenderer(this.getHeightmap().getWidth());
+                        this.createHeightMapDataBuffer();
+
+                        NormalMapRenderer renderer = new NormalMapRenderer(this.getHeightMap().getWidth());
                         renderer.setStrength(60);
-                        renderer.render(this.getHeightmap());
-                        this.setNormalmap(renderer.getNormalmap());
+                        renderer.render(this.getHeightMap());
+                        this.setNormalMap(renderer.getNormalmap());
 
-                        SplatMapRenderer splatMapRenderer = new SplatMapRenderer(this.getHeightmap().getWidth());
-                        splatMapRenderer.render(this.getNormalmap());
-                        this.setSplatmap(splatMapRenderer.getSplatMap());
+                        SplatMapRenderer splatMapRenderer = new SplatMapRenderer(this.getHeightMap().getWidth());
+                        splatMapRenderer.render(this.getNormalMap());
+                        this.setSplatMap(splatMapRenderer.getSplatMap());
 
                         break;
                     case "tbnRange":
@@ -128,6 +136,12 @@ public class TerrainConfig {
     private void setLodRange(int index, int lodRange) {
         this.lodRange[index] = lodRange;
         this.lodMorphingArea[index] = lodRange - this.updateMorphingArea(index + 1);
+    }
+
+    public void createHeightMapDataBuffer() {
+        this.heightMapDataBuffer = BufferUtil.createFloatBuffer(this.getHeightMap().getWidth() * this.getHeightMap().getHeight());
+        this.getHeightMap().bind();
+        glGetTexImage(GL_TEXTURE_2D, 0, GL_RED, GL_FLOAT, this.getHeightMapDataBuffer());
     }
 
     public float getScaleY() {
@@ -186,20 +200,20 @@ public class TerrainConfig {
         this.tessellationShift = tessellationShift;
     }
 
-    public Texture2D getHeightmap() {
-        return heightmap;
+    public Texture2D getHeightMap() {
+        return heightMap;
     }
 
-    public void setHeightmap(Texture2D heightmap) {
-        this.heightmap = heightmap;
+    public void setHeightMap(Texture2D heightMap) {
+        this.heightMap = heightMap;
     }
 
-    public Texture2D getNormalmap() {
-        return normalmap;
+    public Texture2D getNormalMap() {
+        return normalMap;
     }
 
-    public void setNormalmap(Texture2D normalmap) {
-        this.normalmap = normalmap;
+    public void setNormalMap(Texture2D normalMap) {
+        this.normalMap = normalMap;
     }
 
     public int getTbnRange() {
@@ -218,11 +232,19 @@ public class TerrainConfig {
         this.materials = materials;
     }
 
-    public Texture2D getSplatmap() {
-        return splatmap;
+    public Texture2D getSplatMap() {
+        return splatMap;
     }
 
-    public void setSplatmap(Texture2D splatmap) {
-        this.splatmap = splatmap;
+    public void setSplatMap(Texture2D splatMap) {
+        this.splatMap = splatMap;
+    }
+
+    public FloatBuffer getHeightMapDataBuffer() {
+        return heightMapDataBuffer;
+    }
+
+    public void setHeightMapDataBuffer(FloatBuffer heightMapDataBuffer) {
+        this.heightMapDataBuffer = heightMapDataBuffer;
     }
 }

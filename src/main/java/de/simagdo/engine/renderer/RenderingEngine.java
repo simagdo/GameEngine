@@ -2,9 +2,11 @@ package de.simagdo.engine.renderer;
 
 import de.simagdo.engine.camera.Camera;
 import de.simagdo.engine.configs.DefaultConfig;
+import de.simagdo.engine.input.Input;
 import de.simagdo.engine.window.Window;
 import de.simagdo.modules.sky.Skydome;
 import de.simagdo.modules.terrain.Terrain;
+import org.lwjgl.glfw.GLFW;
 
 /**
  * @author Simagdo
@@ -43,6 +45,13 @@ public class RenderingEngine {
     }
 
     public void update() {
+        if (Input.getInstance().isKeyPushed(GLFW.GLFW_KEY_E)) {
+            if (RenderContext.getInstance().isWireFrame()) {
+                RenderContext.getInstance().setWireFrame(false);
+            } else {
+                RenderContext.getInstance().setWireFrame(true);
+            }
+        }
     }
 
     public void shutdown() {

@@ -3,6 +3,7 @@ package de.simagdo.modules.terrain;
 import de.simagdo.engine.buffers.PatchVBO;
 import de.simagdo.engine.camera.Camera;
 import de.simagdo.engine.configs.DefaultConfig;
+import de.simagdo.engine.renderer.RenderContext;
 import de.simagdo.engine.renderer.RenderInfo;
 import de.simagdo.engine.renderer.Renderer;
 import de.simagdo.engine.scene.GameObject;
@@ -43,7 +44,12 @@ public class TerrainNode extends GameObject {
         renderer.setVbo(buffer);
         renderer.setRenderInfo(new RenderInfo(new DefaultConfig(), TerrainShader.getInstance()));
 
+        Renderer wireFrameRenderer = new Renderer();
+        wireFrameRenderer.setVbo(buffer);
+        wireFrameRenderer.setRenderInfo(new RenderInfo(new DefaultConfig(), TerrainWireframeShader.getInstance()));
+
         this.addComponent(Constants.RENDERER_COMPONENT, renderer);
+        this.addComponent(Constants.WIREFRAME_RENDERER_COMPONENT, wireFrameRenderer);
 
         this.computeWorldPosition();
         this.updateQuadtree();
@@ -51,19 +57,18 @@ public class TerrainNode extends GameObject {
 
     public void render() {
         if (this.isLeaf()) {
-            this.getComponents().get(Constants.RENDERER_COMPONENT).render();
+            if (RenderContext.getInstance().isWireFrame()) {
+                this.getComponents().get(Constants.WIREFRAME_RENDERER_COMPONENT).render();
+            } else {
+                this.getComponents().get(Constants.RENDERER_COMPONENT).render();
+            }
         }
 
         this.getChildren().forEach(Node::render);
 
     }
 
-    //TODO optimize this code
     public void updateQuadtree() {
-        if (Camera.getInstance().getPosition().getY() > this.config.getScaleY())
-            this.worldPosition.setY(this.config.getScaleY());
-        else this.worldPosition.setY(Camera.getInstance().getPosition().getY());
-
         this.updateChildNodes();
 
         this.getChildren().forEach(child -> ((TerrainNode) child).updateQuadtree());
@@ -104,7 +109,48 @@ public class TerrainNode extends GameObject {
     public void computeWorldPosition() {
         Vec2f location = this.location.add(this.gap / 2f).mul(this.config.getScaleXZ()).sub(this.config.getScaleXZ() / 2f);
 
-        this.worldPosition = new Vec3f(location.getX(), 0, location.getY());
+        float z = this.getTerrainHeight(location.getX(), location.getY());
+
+        this.worldPosition = new Vec3f(location.getX(), z, location.getY());
+    }
+
+    public float getTerrainHeight(float x, float z) {
+        float h = 0;
+        Vec2f pos = new Vec2f();
+        pos.setX(x);
+        pos.setY(z);
+        pos = pos.add(this.config.getScaleXZ() / 2f);
+        pos = pos.div(this.config.getScaleY());
+        Vec2f floor = new Vec2f((int) Math.floor(pos.getX()), (int) Math.floor(pos.getY()));
+        pos = pos.sub(floor);
+        pos = pos.mul(this.config.getHeightMap().getWidth());
+        int x0 = (int) Math.floor(pos.getX());
+        int x1 = x0 + 1;
+        int z0 = (int) Math.floor(pos.getY());
+        int z1 = z0 + 1;
+
+        float h0 = this.config.getHeightMapDataBuffer().get(this.config.getHeightMap().getWidth() * z0 + x0);
+        float h1 = this.config.getHeightMapDataBuffer().get(this.config.getHeightMap().getWidth() * z0 + x1);
+        float h2 = this.config.getHeightMapDataBuffer().get(this.config.getHeightMap().getWidth() * z1 + x0);
+        float h3 = this.config.getHeightMapDataBuffer().get(this.config.getHeightMap().getWidth() * z1 + x1);
+
+        float percentU = pos.getX() - x0;
+        float percentV = pos.getY() - x0;
+
+        float dU, dV;
+
+        if (percentU > percentV) {
+            dU = h1 - h0;
+            dV = h3 - h1;
+        } else {
+            dU = h3 - h2;
+            dV = h2 - h0;
+        }
+
+        h = h0 + (dU * percentU) + (dV * percentV);
+        h *= this.config.getScaleY();
+
+        return h;
     }
 
     public boolean isLeaf() {

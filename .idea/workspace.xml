@@ -19,17 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="Terrain Materials">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/gpgpu/SplatMapRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/gpgpu/SplatMapShader.java" afterDir="false" />
+    <list default="true" id="4479dee2-5e40-4454-bc3e-d315c9b67df7" name="Default Changelist" comment="Terrain Splatmap">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/configs/Wireframe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/renderer/RenderContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainWireframeShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/renderer/RenderingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/engine/renderer/RenderingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/sky/Skydome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/sky/Skydome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/simagdo/modules/terrain/TerrainShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/settings/terrain_settings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings/terrain_settings.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/gpgpu/NormalMap.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/gpgpu/NormalMap.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/gpgpu/SplatMap.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/gpgpu/SplatMap.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_FS.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_FS.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_GS.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_GS.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_VS.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/Terrain_VS.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/wireframe_FS.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/wireframe_FS.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/shaders/terrain/wireframe_GS.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/terrain/wireframe_GS.glsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +125,7 @@
       <workItem from="1589912031410" duration="3588000" />
       <workItem from="1589982555049" duration="5262000" />
       <workItem from="1590248247028" duration="4305000" />
-      <workItem from="1590311982623" duration="1311000" />
+      <workItem from="1590311982623" duration="4611000" />
     </task>
     <task id="LOCAL-00001" summary="Creating the initial Game Engine.">
       <created>1588952714907</created>
@@ -194,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590247866582</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Terrain Splatmap">
+      <created>1590313604379</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1590313604379</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,13 +243,14 @@
     <MESSAGE value="Fixing Bug with Terrain Quadtree #2" />
     <MESSAGE value="Terrain Generation fixed" />
     <MESSAGE value="Terrain Materials" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terrain Materials" />
+    <MESSAGE value="Terrain Splatmap" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terrain Splatmap" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1590249782777">
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1590314707987">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590249782777" />
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590314707987" />
     <state x="855" y="625" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588793315827">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -260,22 +271,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590149724746" />
-    <state width="2517" height="381" key="GridCell.Tab.0.bottom" timestamp="1590266405423">
+    <state width="2517" height="381" key="GridCell.Tab.0.bottom" timestamp="1590315953393">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="381" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590266405423" />
-    <state width="2517" height="381" key="GridCell.Tab.0.center" timestamp="1590266405422">
+    <state width="2517" height="381" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590315953393" />
+    <state width="2517" height="381" key="GridCell.Tab.0.center" timestamp="1590315953393">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="381" key="GridCell.Tab.0.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590266405422" />
-    <state width="2517" height="381" key="GridCell.Tab.0.left" timestamp="1590266405422">
+    <state width="2517" height="381" key="GridCell.Tab.0.center/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590315953393" />
+    <state width="2517" height="381" key="GridCell.Tab.0.left" timestamp="1590315953392">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="381" key="GridCell.Tab.0.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590266405422" />
-    <state width="2517" height="381" key="GridCell.Tab.0.right" timestamp="1590266405422">
+    <state width="2517" height="381" key="GridCell.Tab.0.left/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590315953392" />
+    <state width="2517" height="381" key="GridCell.Tab.0.right" timestamp="1590315953393">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="381" key="GridCell.Tab.0.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590266405422" />
+    <state width="2517" height="381" key="GridCell.Tab.0.right/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590315953393" />
     <state width="2517" height="484" key="GridCell.Tab.1.bottom" timestamp="1590247904808">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -304,14 +315,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1002" y="442" width="561" height="540" key="StructurePopup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1588868542292" />
-    <state x="873" y="430" key="Vcs.Push.Dialog.v2" timestamp="1590247871204">
+    <state x="873" y="430" key="Vcs.Push.Dialog.v2" timestamp="1590313617454">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="873" y="430" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590247871204" />
+    <state x="873" y="430" key="Vcs.Push.Dialog.v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590313617454" />
     <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589983603299">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1589983603299" />
+    <state x="1052" y="508" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590313889101">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1052" y="508" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590313889101" />
     <state x="-1280" y="523" width="1296" height="961" key="dock-window-1" timestamp="1588868825894">
       <screen x="-1280" y="523" width="1280" height="984" />
     </state>
@@ -336,9 +351,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="937" y="331" key="run.anything.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590249348525" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1590250307080">
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1590315639005">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590250307080" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1280.523.1280.984@0.0.2560.1400" timestamp="1590315639005" />
   </component>
 </project>
